@@ -9,7 +9,7 @@ module.exports = function(webserver, controller) {
         res.status(200);
         res.send('ok');
 
-		console.log('GOT A REQ!', req.body)
+		// console.log('GOT A REQ!', req.body)
 
         var bot = controller.spawn({});
 
