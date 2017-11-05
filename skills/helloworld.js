@@ -69,6 +69,14 @@ module.exports = (controller) => {
 		bot.reply(message, 'Received message')
 		console.log({message})
 	})
+controller.hears('location', 'message_received', (bot, message) => {
+	bot.reply(message, {location: {
+    "title": "Docs Location!",
+    "address": "〒150-0002 東京都渋谷区渋谷２丁目２１−１",
+    "latitude": 35.65910807942215,
+    "longitude": 139.70372892916203
+	}})
+})
 	controller.hears('(.*)', 'message_received, line_postback', (bot, message) => {
 		bot.reply(message, `Heard "${message.text}"`)
 		bot.reply(message, {sticker: {stickerId: '1', packageId: '1'}})
