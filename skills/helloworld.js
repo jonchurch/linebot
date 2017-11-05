@@ -71,7 +71,7 @@ module.exports = (controller) => {
 	})
 	controller.hears('(.*)', 'message_received, line_postback', (bot, message) => {
 		bot.reply(message, `Heard "${message.text}"`)
-		bot.reply(message, {sticker: {stickerId: '48404', packageId: '2000052'}})
+		bot.reply(message, {sticker: {stickerId: '1', packageId: '1'}})
 		bot.reply(message, {image: 'https://i.imgur.com/6XlP3L6.jpg'})
 		console.log({message})
 	})
