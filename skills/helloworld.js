@@ -5,6 +5,16 @@ module.exports = (controller) => {
 		console.log({message})
 		bot.reply(message, 'Oh, Hello!')
 	})
+
+	controller.hears('convo', 'message_received', (bot, message) => {
+		bot.startConversation(message, (err, convo) => {
+			convo.ask('How are you?', (res, convo) => {
+				convo.say(`Good to hear "${res.text}"`)
+				convo.next()
+			})
+			
+		})
+	})
 	controller.hears('template', 'message_received', (bot, message) => {
 		bot.reply(message, {template:{
   "altText": "this is a image carousel template",
@@ -79,9 +89,9 @@ controller.hears('location', 'message_received', (bot, message) => {
 })
 	controller.hears('(.*)', 'message_received, line_postback', (bot, message) => {
 		bot.reply(message, `Heard "${message.text}"`)
-		bot.reply(message, {sticker: {stickerId: '1', packageId: '1'}})
-		bot.reply(message, {image: 'https://i.imgur.com/6XlP3L6.jpg'})
-		bot.reply(message, {audio: {url: 'https://cdn.glitch.com/412692c5-6050-42e1-a753-60ac0b3bf6e6%2FDuck!%20Quack%20quack!.m4a?1509926064610', duration: 30000}})
+		// bot.reply(message, {sticker: {stickerId: '1', packageId: '1'}})
+		// bot.reply(message, {image: 'https://i.imgur.com/6XlP3L6.jpg'})
+		// bot.reply(message, {audio: {url: 'https://cdn.glitch.com/412692c5-6050-42e1-a753-60ac0b3bf6e6%2FDuck!%20Quack%20quack!.m4a?1509926064610', duration: 30000}})
 		console.log({message})
 	})
 }
