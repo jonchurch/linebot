@@ -5,6 +5,10 @@ module.exports = (controller) => {
 		console.log({message})
 		bot.reply(message, 'Oh, Hello!')
 	})
+	controller.on('line_follow', (bot, message) => {
+		console.log('=====Heard Line follow')
+		bot.reply(message, 'Nice to meet you! I am a Free bot in both form and spirit hehe')
+	})
 
 	controller.hears('convo', 'message_received', (bot, message) => {
 		bot.startConversation(message, (err, convo) => {
