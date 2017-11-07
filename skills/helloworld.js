@@ -2,11 +2,9 @@
 module.exports = (controller) => {
 
 	controller.hears('hi', 'message_received', (bot, message) => {
-		console.log({message})
 		bot.reply(message, 'Oh, Hello!')
 	})
 	controller.on('line_follow', (bot, message) => {
-		console.log('=====Heard Line follow')
 		bot.reply(message, 'Nice to meet you! I am a Free bot in both form and spirit hehe')
 	})
 
@@ -192,7 +190,6 @@ controller.hears('carousel', 'message_received', (bot, message) => {
 
 	controller.on('message_received', (bot, message)=> {
 		bot.reply(message, 'Received message')
-		console.log({message})
 	})
 controller.hears('location', 'message_received', (bot, message) => {
 	bot.reply(message, {location: {
@@ -207,6 +204,5 @@ controller.hears('location', 'message_received', (bot, message) => {
 		// bot.reply(message, {sticker: {stickerId: '1', packageId: '1'}})
 		// bot.reply(message, {image: 'https://i.imgur.com/6XlP3L6.jpg'})
 		// bot.reply(message, {audio: {url: 'https://cdn.glitch.com/412692c5-6050-42e1-a753-60ac0b3bf6e6%2FDuck!%20Quack%20quack!.m4a?1509926064610', duration: 30000}})
-		console.log({message})
 	})
 }
